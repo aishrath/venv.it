@@ -16,10 +16,19 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+python3 --version
 
-if [ ! -f /usr/local/bin/python3 ];
+if [ ! "$?" -eq 0 ];
 then
-    echo 'Please ensure you have Python 3 installed at: /usr/local/bin/python3'
+    echo 'Please ensure you have Python 3 installed...'
+    exit 1
+fi
+
+virtualenv --version
+
+if [ ! "$?" -eq 0 ];
+then
+    echo 'Please ensure you have virtualenv installed...'
     exit 1
 fi
 
@@ -34,5 +43,5 @@ else
     exit 1
 fi
 
-virtualenv -p /usr/local/bin/python3 venv
+virtualenv -p python3 venv
 source ./venv/bin/activate
