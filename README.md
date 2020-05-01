@@ -7,7 +7,7 @@ This shell script creates a virtualenv for your Python 3 project.
 Invoke the script:
 
 ```
-./venv.it
+. ./venv.it
 ```
 and enter a name for your directory where the virtualenv will be created.
 

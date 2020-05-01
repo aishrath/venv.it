@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 #    venv.it: A shell script that creates and activates a virtualenv for your Python 3 project.
 #    Copyright (C) 2020  Aishwareeya Rath
@@ -16,6 +16,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 python3 --version
 
 if [ ! "$?" -eq 0 ];
@@ -26,14 +27,19 @@ fi
 
 virtualenv --version
 
+
 if [ ! "$?" -eq 0 ];
 then
     echo 'Please ensure you have virtualenv installed...'
     exit 1
 fi
 
-echo 'Name of directory: '
-read dirname
+if [ $# -eq 0 ]
+then
+    read "dirname?Name of Directory: "
+else
+    dirname=$1
+fi
 
 if [ ! -d "$dirname" ];
 then
